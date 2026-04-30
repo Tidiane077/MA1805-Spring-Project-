@@ -1,11 +1,18 @@
+let myFont;
+
+function preload() {
+    myFont = loadFont('fonts/Game.ttf')
+}
 function setup() {
-   createcanvas(800, 500) 
+   createCanvas(windowWidth, windowHeight);
+   textFont(myFont);
 }
 
 function draw() {
-    background(20);
+    background(0);
 
     fill(255);
     textSize(32);
-    text("Space Rider", 280, 250);
+    textAlign(CENTER, TOP);
+    text("Space Rider", width / 2, 20);
 }
