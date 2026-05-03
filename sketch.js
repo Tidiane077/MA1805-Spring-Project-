@@ -1,3 +1,4 @@
+let stars = [];
 let myFont;
 
 function preload() {
@@ -6,13 +7,75 @@ function preload() {
 function setup() {
    createCanvas(windowWidth, windowHeight);
    textFont(myFont);
+
+   for (let i = 0; i < 100; i++) {
+    stars.push({
+    x: random(width),
+    y: random(height),
+    speed: random(1,4)
+    });
+   }
 }
 
 function draw() {
     background(0);
 
-    fill(255);
+    for (let s of stars) {
+        fill(255);
+        noStroke();
+        ellipse(s.x, s.y, 2);
+
+        s.x -= s.speed;
+
+        if (s.x < 0) {
+            s.x = width;
+            s.y = random(height);
+        }
+    }
+
+    let base = map(sin(frameCount * 0.1), -1, 1, 180, 255);
+    let glitch = random(-50, 0);
+
+    fill(base + glitch);
     textSize(32);
     textAlign(CENTER, TOP);
     text("Space Rider", width / 2, 20);
+    
+    drawRider(width / 4, height / 2);
+
+}
+
+function drawRider(x,y){
+push();
+translate(x,y);
+
+//slight tilt
+rotate(-0.2);
+
+rectMode(CENTER);
+
+//BOARD
+fill(180, 100, 255);
+ellipse(0, 20, 60, 15);
+
+//BODY
+fill(100, 255, 150);
+rect(0, 0, 20, 30, 5);
+
+//HEAD 
+fill(120, 255, 180);
+ellipse(0, -25, 20, 20);
+
+//EYES
+fill(0);
+ellipse(-4, -25, 3, 5);
+ellipse(4, -25, 3, 5);
+
+//ANTENNAE
+stroke(120,255,180);
+line(-5, -35, -8, -45);
+line(5, -35, 8, -45);
+noStroke();
+
+pop();
 }
