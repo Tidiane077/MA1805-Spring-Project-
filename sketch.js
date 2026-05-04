@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let stars = [];
 let asteroids = [];
 let bullets = [];
@@ -8,8 +7,7 @@ let myFont;
 function preload() {
     myFont = loadFont('fonts/Game.ttf')
 }
-=======
->>>>>>> 5211dead2e8800ffa43b28f8fa29b6cc08d37627
+
 function setup() {
    createcanvas(800, 500) 
 }
@@ -17,7 +15,7 @@ function setup() {
 function draw() {
     background(20);
 
-<<<<<<< HEAD
+
     //Asteroid spawn + movement
     if (frameCount % 60 === 0) {
     let newSize = random(60, 100)
@@ -119,9 +117,9 @@ function mousePressed(){
     y: height /2,
     speed:8 
   });
-=======
+
     fill(255);
     textSize(32);
     text("Space Rider", 280, 250);
->>>>>>> 5211dead2e8800ffa43b28f8fa29b6cc08d37627
+
 }
