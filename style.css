@@ -1,18 +1,23 @@
 
 body {
-  overflow: hidden; 
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   background: linear-gradient(to bottom, #050510, #120020);
   font-family: fantasy, copperplate;
+  overflow: hidden; 
 }
 
 canvas {
     display: block; 
-    border: 2xp solid white;
+    margin: 0 auto;
+    border: 2px solid white;
     box-shadow: 0 0 20px cyan;  
+}
+
+.title {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
 }
